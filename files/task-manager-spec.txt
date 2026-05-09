@@ -1,0 +1,43 @@
+Task Manager — Technical Specification
+======================================
+
+Project: Collaborative Task Manager
+Version: 1.0
+Status: Released
+
+Architecture
+------------
+Frontend: React 19 with TanStack Router
+Backend:  Netlify Functions (Node.js)
+Database: Netlify Database (Postgres via Drizzle ORM)
+Auth:     Netlify Identity
+
+Data Model
+----------
+Tasks
+  id          UUID PRIMARY KEY
+  title       TEXT NOT NULL
+  description TEXT
+  status      ENUM('todo', 'in_progress', 'done')
+  assigned_to TEXT (user email)
+  created_at  TIMESTAMP DEFAULT NOW()
+  updated_at  TIMESTAMP DEFAULT NOW()
+
+Projects
+  id          UUID PRIMARY KEY
+  name        TEXT NOT NULL
+  owner       TEXT NOT NULL
+  created_at  TIMESTAMP DEFAULT NOW()
+
+API Endpoints
+-------------
+GET    /api/tasks           List all tasks (authenticated)
+POST   /api/tasks           Create a task
+PATCH  /api/tasks/:id       Update task status or fields
+DELETE /api/tasks/:id       Delete a task
+
+Performance Notes
+-----------------
+- Optimistic UI updates for instant feedback
+- Real-time sync via polling every 30s (WebSocket upgrade planned)
+- Connection pooling via @netlify/database built-in PgBouncer layer

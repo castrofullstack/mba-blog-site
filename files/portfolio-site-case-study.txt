@@ -1,0 +1,33 @@
+Portfolio Site — Case Study
+===========================
+
+Project: Personal Portfolio & Blog
+Technology: TanStack Start, React 19, Tailwind CSS 4, Netlify
+
+Overview
+--------
+This portfolio site was built to showcase my work and share technical writing.
+It uses Content Collections for type-safe markdown management, giving editors
+a simple file-based workflow while keeping the frontend fully typed.
+
+Key Design Decisions
+--------------------
+- TanStack Start for full-stack SSR with file-based routing
+- Content Collections for zero-runtime content parsing
+- Netlify Edge Network for global CDN delivery
+- Tailwind CSS 4 with the new CSS-first configuration model
+
+Challenges & Solutions
+----------------------
+Challenge: Managing blog images at build time without a CMS.
+Solution:  Stored images in /public/images with a consistent naming convention
+           and referenced them via the content-collections schema.
+
+Challenge: Downloadable portfolio files alongside dynamic content.
+Solution:  Static files served from /public/files — no database needed for
+           small, infrequently updated assets.
+
+Outcome
+-------
+Build time < 30s. Lighthouse score: 98 Performance, 100 Accessibility.
+Zero cold-start latency thanks to Netlify's pre-rendered edge delivery.
