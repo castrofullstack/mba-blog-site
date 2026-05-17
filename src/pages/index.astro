@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const featured = posts.find((post) => post.data.featured) ?? posts[0];
+const recentPosts = posts.filter((post) => post.id !== featured?.id).slice(0, 3);
+---
+
+<BaseLayout title="MBA Blog" description="A modern professional blog for strategy, leadership, operations, and clearer business thinking.">
+  <section class="hero">
+    <img src="/headshot-on-white.jpg" alt="Christopher Castro headshot on a clean white background" />
+    <div class="hero-overlay">
+      <p class="eyebrow">Strategy, leadership, and practical clarity</p>
+      <h1>Better thinking for the work that shapes a business.</h1>
+      <p class="hero-copy">MBA Blog is a home for concise essays on decision making, operating rhythm, communication, and the craft of building durable companies.</p>
+      <div class="hero-actions">
+        <a class="button" href="/blog/">Read the blog</a>
+        <a class="button button-secondary" href="/about/">About the brand</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Featured essay</p>
+      <h2>Start with the useful conversation.</h2>
+    </div>
+    {featured && <PostCard post={featured} />}
+  </section>
+
+  <section class="section section-muted">
+    <div class="section-heading">
+      <p class="eyebrow">Latest writing</p>
+      <h2>Recent notes and essays</h2>
+    </div>
+    <div class="post-grid">
+      {recentPosts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+</BaseLayout>
