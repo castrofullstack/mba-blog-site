@@ -21,6 +21,39 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Prepare Astro source
+        run: |
+          rm -rf assets index.html contact.html
+          rm -rf src/components/src src/content/blog/blog src/content/blog/src src/content/content src/src
+          rm -f src/content/blog/.keep src/content/blog/config.ts src/content/designing-better-business-writing.md
+          mkdir -p public src/pages/blog
+          cp headshot-on-white.jpg public/headshot-on-white.jpg
+
+          cat > src/pages/blog/index.astro <<'EOF'
+          ---
+          import BaseLayout from '../../layouts/BaseLayout.astro';
+          import PostCard from '../../components/PostCard.astro';
+          import { getCollection } from 'astro:content';
+
+          const posts = (await getCollection('blog')).sort(
+            (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+          );
+          ---
+
+          <BaseLayout title="Blog" description="Read essays from MBA Blog on strategy, leadership, operations, and communication.">
+            <section class="page-header">
+              <p class="eyebrow">The archive</p>
+              <h1>Ideas for clearer business decisions.</h1>
+              <p>Short, practical essays for people who want their work to be sharper, calmer, and easier to act on.</p>
+            </section>
+            <section class="section">
+              <div class="post-grid">
+                {posts.map((post) => <PostCard post={post} />)}
+              </div>
+            </section>
+          </BaseLayout>
+          EOF
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
