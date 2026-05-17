@@ -4,13 +4,13 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const {
-  title = 'MBA Blog',
-  description = 'Professional insights on strategy, leadership, operations, and business writing.',
+  title = 'Christopher Castro, MBA',
+  description = 'Professional insights on AI, strategy, leadership, operations, and the smarter way to work.',
   image = '/headshot-on-white.jpg'
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
-const pageTitle = title === 'MBA Blog' ? title : `${title} | MBA Blog`;
+const pageTitle = title === 'Christopher Castro, MBA' ? title : `${title} | Christopher Castro, MBA`;
 ---
 
 <!doctype html>
