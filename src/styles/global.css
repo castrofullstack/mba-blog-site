@@ -328,7 +328,9 @@ h3 {
 .contact-card strong {
   display: block;
   margin-top: 8px;
-  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
 .article-shell {
