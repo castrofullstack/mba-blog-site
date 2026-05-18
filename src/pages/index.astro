@@ -8,26 +8,27 @@ const posts = (await getCollection('blog')).sort(
 );
 const featured = posts.find((post) => post.data.featured) ?? posts[0];
 const recentPosts = posts.filter((post) => post.id !== featured?.id).slice(0, 3);
+const heroImage = 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80';
 ---
 
-<BaseLayout title="Christopher Castro, MBA" description="AI strategy, leadership, and practical thinking from Christopher Castro, MBA.">
+<BaseLayout title="MBA Blog" description="A modern professional blog for strategy, leadership, operations, and clearer business thinking." image={heroImage}>
   <section class="hero">
-    <img src="/public/images/hero_image.png" alt="Christopher Castro" />
+    <img src={heroImage} alt="Workspace desk with a laptop showing business analytics" />
     <div class="hero-overlay">
-      <p class="eyebrow">AI strategy, leadership, and the smarter way to work</p>
-      <h1>Turning complex ideas into clear, actionable thinking.</h1>
-      <p class="hero-copy">Christopher Castro is an MBA, AI workflow consultant, and Lab Builder Specialist writing about artificial intelligence, strategy, operations, and the tools that help professionals work smarter.</p>
+      <p class="eyebrow">Strategy, leadership, and practical clarity</p>
+      <h1>Better thinking for the work that shapes a business.</h1>
+      <p class="hero-copy">MBA Blog is a home for concise essays on decision making, operating rhythm, communication, and the craft of building durable companies.</p>
       <div class="hero-actions">
         <a class="button" href="/blog/">Read the blog</a>
-        <a class="button button-secondary" href="/about/">About Christopher</a>
+        <a class="button button-secondary" href="/about/">About the brand</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="section-heading">
-      <p class="eyebrow">Featured post</p>
-      <h2>Start with the most important read.</h2>
+      <p class="eyebrow">Featured essay</p>
+      <h2>Start with the useful conversation.</h2>
     </div>
     {featured && <PostCard post={featured} />}
   </section>
@@ -35,7 +36,7 @@ const recentPosts = posts.filter((post) => post.id !== featured?.id).slice(0, 3)
   <section class="section section-muted">
     <div class="section-heading">
       <p class="eyebrow">Latest writing</p>
-      <h2>Recent posts and essays</h2>
+      <h2>Recent notes and essays</h2>
     </div>
     <div class="post-grid">
       {recentPosts.map((post) => <PostCard post={post} />)}
