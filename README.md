@@ -1,38 +1,49 @@
-# MBA Blog Site
+# Christopher Castro MBA Blog
 
-This is a professional Astro blog website.
+This is the live source for [christophercastro.mba](https://christophercastro.mba/).
 
-It includes:
+## Write New Posts
 
-- A homepage
-- A blog index
-- Individual blog post pages
-- An About page
-- A Contact page
-- Markdown blog posts
-- Responsive styling
-- SEO-friendly settings
+Blog posts live in:
 
-## How to add blog posts
+```text
+src/content/blog/
+```
 
-Blog posts go in this folder:
+Each post is a Markdown file ending in `.md`. Start with frontmatter like this:
 
-src/content/blog
+```md
+---
+title: "Post Title"
+description: "Short summary for cards and search previews."
+pubDate: 2026-05-18
+category: "Strategy"
+featured: false
+---
 
-Each post should be a Markdown file ending in .md.
+Write the post here.
+```
 
-## How to deploy
+Set `featured: true` on one post when you want it to appear in the homepage featured slot.
 
-This site is intended to deploy on Vercel.
+## Local Preview
 
-Use these Vercel settings:
+```sh
+npm install
+npm run dev
+```
 
-Build command:
+Then open the local URL Astro prints.
 
+## Publish
+
+This repo publishes with GitHub Pages. Any push to `main` runs `.github/workflows/deploy.yml` and updates the live site.
+
+```sh
 npm run build
+git add .
+git commit -m "Describe the change"
+git push origin main
+```
 
-Output directory:
-
-dist
-
-Before going live, update the contact email and website URL.
+Live URL: [christophercastro.mba](https://christophercastro.mba/)

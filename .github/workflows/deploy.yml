@@ -26,13 +26,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Prepare repository
-        run: |
-          rm -rf assets images files admin
-          rm -rf src/components/src src/content/blog/src src/content/blog/blog src/content/content src/src
-          rm -f src/content/blog/.keep src/content/blog/config.ts src/content/designing-better-business-writing.md
-          rm -f contact.html index.html favicon.ico headshot-on-white.jpg hero-healthcare.png
-
       - name: Install dependencies
         run: npm install
 
