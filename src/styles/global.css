@@ -195,16 +195,16 @@ h3 {
   align-items: center;
   justify-content: center;
   min-height: 46px;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--blue-dark);
   border-radius: 8px;
   padding: 10px 18px;
   color: white;
-  background: var(--blue);
+  background: var(--blue-dark);
 }
 
 .button:hover {
-  background: var(--blue-dark);
-  border-color: var(--blue-dark);
+  background: #082f5e;
+  border-color: #082f5e;
 }
 
 .button-secondary {
