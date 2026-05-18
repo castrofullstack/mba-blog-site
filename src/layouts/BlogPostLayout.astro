@@ -1,7 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import type { CollectionEntry } from 'astro:content';
 
-const { post } = Astro.props;
+const { post } = Astro.props as { post: CollectionEntry<'blog'> };
 const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
@@ -15,7 +16,7 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
     <header class="article-header">
       <div class="post-meta">
         <time datetime={post.data.pubDate.toISOString()}>{formattedDate}</time>
-        {post.data.tags.map((tag) => <span>{tag}</span>)}
+        {post.data.tags.map((tag: string) => <span>{tag}</span>)}
       </div>
       <h1>{post.data.title}</h1>
       <p>{post.data.description}</p>
