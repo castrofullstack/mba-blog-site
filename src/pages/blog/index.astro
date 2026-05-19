@@ -6,14 +6,18 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const heroImage = '/images/blog-hero.png';
 ---
 
-<BaseLayout title="Blog" description="Read essays from MBA Blog on strategy, leadership, operations, and communication.">
+<BaseLayout title="Blog" description="Read essays from MBA Blog on strategy, leadership, operations, and communication." image={heroImage}>
   <section class="page-header">
     <p class="eyebrow">The archive</p>
     <h1>Ideas for clearer business decisions.</h1>
     <p>Short, practical essays for people who want their work to be sharper, calmer, and easier to act on.</p>
   </section>
+  <figure class="page-visual">
+    <img src={heroImage} alt="A bright business workspace with abstract planning notes and analytics" />
+  </figure>
   <section class="section">
     <div class="post-grid">
       {posts.map((post) => <PostCard post={post} />)}

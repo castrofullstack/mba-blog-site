@@ -1,13 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const heroImage = '/images/about-hero.png';
 ---
 
-<BaseLayout title="About" description="Learn about MBA Blog, a professional writing brand focused on strategy, leadership, and useful business thinking.">
+<BaseLayout title="About" description="Learn about MBA Blog, a professional writing brand focused on strategy, leadership, and useful business thinking." image={heroImage}>
   <section class="page-header">
     <p class="eyebrow">About the brand</p>
     <h1>Professional thinking with a human pulse.</h1>
     <p>MBA Blog publishes practical essays for leaders, operators, builders, and students of business who want sharper judgment without the jargon fog.</p>
   </section>
+  <figure class="page-visual">
+    <img src={heroImage} alt="A refined executive workspace with abstract business planning details" />
+  </figure>
   <section class="content-band two-column">
     <div>
       <h2>What this site is for</h2>

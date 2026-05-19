@@ -1,13 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const heroImage = '/images/contact-hero.png';
 ---
 
-<BaseLayout title="Contact" description="Contact MBA Blog for collaborations, questions, speaking, or consulting inquiries.">
+<BaseLayout title="Contact" description="Contact MBA Blog for collaborations, questions, speaking, or consulting inquiries." image={heroImage}>
   <section class="page-header">
     <p class="eyebrow">Contact</p>
     <h1>Let’s start the right conversation.</h1>
     <p>For collaborations, consulting inquiries, interviews, or thoughtful notes, use the links below.</p>
   </section>
+  <figure class="page-visual">
+    <img src={heroImage} alt="A calm executive study with strategy notes and business writing tools" />
+  </figure>
   <section class="content-band contact-grid">
     <a class="contact-card" href="mailto:ChristopherCastroMBA@gmail.com">
       <span>Email</span>
