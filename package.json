@@ -1,12 +1,12 @@
 {
-  "name": "mba-blog-site",
+  "name": "from-scratch",
   "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
