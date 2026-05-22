@@ -1,4 +1,4 @@
-# Christopher Castro MBA Blog
+# From Scratch
 
 This is the live source for [christophercastro.mba](https://christophercastro.mba/).
 

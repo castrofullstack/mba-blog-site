@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" role="img" aria-labelledby="title desc">
+  <title id="title">From Scratch logo</title>
+  <desc id="desc">Three amber scratch marks beside the From Scratch wordmark.</desc>
+  <g fill="none" stroke="#f5a400" stroke-linecap="round" stroke-width="8">
+    <path d="M42 101 106 31"/>
+    <path d="M72 111 136 41"/>
+    <path d="M24 82 88 12"/>
+  </g>
+  <text x="168" y="66" fill="#172033" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">From</text>
+  <text x="168" y="126" fill="#172033" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">Scratch</text>
+</svg>
