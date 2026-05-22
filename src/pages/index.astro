@@ -11,31 +11,62 @@ const recentPosts = posts.filter((post) => post.id !== featured?.id).slice(0, 3)
 const heroImage = 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80';
 
 const categories = [
-  { name: 'The Recipe', focus: 'Process, workflow, and how-to' },
-  { name: 'The Playbook', focus: 'Strategy, sports, and performance' },
-  { name: 'The Build', focus: 'Tech, AI, and useful tools' },
-  { name: 'The Kitchen', focus: 'Cooking, creativity, and craft' }
+  {
+    name: 'The Recipe',
+    focus: 'Repeatable ways to make work clearer, calmer, and easier to execute.'
+  },
+  {
+    name: 'The Playbook',
+    focus: 'Strategy, sport, and the choices that separate motion from progress.'
+  },
+  {
+    name: 'The Build',
+    focus: 'Technology, AI, and practical systems that help people do better work.'
+  },
+  {
+    name: 'The Kitchen',
+    focus: 'Cooking, craft, and the discipline of turning raw ingredients into something useful.'
+  }
+];
+
+const principles = [
+  'Start with the problem people actually feel.',
+  'Make the process visible before trying to improve it.',
+  'Respect the craft, then build a system that can survive real life.'
 ];
 ---
 
-<BaseLayout title="From Scratch" description="Systems thinking for the hospital, the kitchen, and the game. Built from scratch. Written with intention." image={heroImage}>
+<BaseLayout title="From Scratch" description="Practical writing on workflow, strategy, AI, cooking, and craft from Christopher Castro." image={heroImage}>
   <section class="hero">
     <img src={heroImage} alt="Workspace desk with a laptop showing business analytics" />
     <div class="hero-overlay">
-      <p class="eyebrow">Built from scratch. Written with intention.</p>
-      <h1>Systems thinking for the hospital, the kitchen, and the game.</h1>
-      <p class="hero-copy">Chefs build dishes from scratch. Builders build systems from scratch. Athletes build careers from scratch. This is where all three meet.</p>
+      <p class="eyebrow">Built from scratch. Made useful.</p>
+      <h1>Clearer thinking for the systems we live and work inside.</h1>
+      <p class="hero-copy">From Scratch is where Christopher Castro writes about workflow, strategy, AI, cooking, and craft through one practical question: how do we build things that actually work?</p>
       <div class="hero-actions">
         <a class="button" href="/blog/">Read the blog</a>
-        <a class="button button-secondary" href="/about/">About From Scratch</a>
+        <a class="button button-secondary" href="/about/">Meet Christopher</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section intro-section">
+    <div class="section-heading">
+      <p class="eyebrow">The point of view</p>
+      <h2>Better systems start with better noticing.</h2>
+    </div>
+    <div class="intro-grid">
+      <p>Every team, recipe, tool, and game has a hidden operating rhythm. Some rhythms make good work easier. Others create drag, confusion, and avoidable rework.</p>
+      <div class="principle-list" aria-label="From Scratch principles">
+        {principles.map((principle) => <p>{principle}</p>)}
       </div>
     </div>
   </section>
 
   <section class="section category-section">
     <div class="section-heading">
-      <p class="eyebrow">Core themes</p>
-      <h2>How the work gets made.</h2>
+      <p class="eyebrow">What you will find here</p>
+      <h2>Four lanes, one lens.</h2>
     </div>
     <div class="category-grid">
       {categories.map((category) => (
@@ -50,7 +81,7 @@ const categories = [
   <section class="section">
     <div class="section-heading">
       <p class="eyebrow">Featured essay</p>
-      <h2>Start with the useful process.</h2>
+      <h2>A practical place to start.</h2>
     </div>
     {featured && <PostCard post={featured} />}
   </section>
